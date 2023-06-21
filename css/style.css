@@ -1,5 +1,52 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+.button {
+    border: 1px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 20px;
+    margin: 10px auto;
+    cursor: pointer;
+    display: block;
+
+    
+}
+
+.grid-container {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.grid-container > .cell {
+    width: 10%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 5px solid black;
+    background-color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    color: white;
+}
+
+.grid-container > .cell.active {
+    background-color: white;
+    color: black;
+}
