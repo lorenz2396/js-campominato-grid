@@ -4,49 +4,74 @@
     box-sizing: border-box;
 }
 
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-    
+header{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
     border: 1px solid black;
     color: black;
     padding: 15px 32px;
-    text-align: center;
     text-decoration: none;
     font-size: 16px;
     border-radius: 20px;
     margin: 10px auto;
     cursor: pointer;
-    display: block;
+    margin: 0 10px;
+}
 
-    
+.button:hover{
+    box-shadow: 8px 10px #888888;
+    opacity: .75;
+    font-size: large;
 }
 
 .grid-container {
-    width: 1000px;
-    margin: 0 auto;
+    width: 800px;    /* se vogliamo 10 celle per riga in base all'altezza e larghezza delle celle */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
 
 .grid-container > .cell {
-    width: 10%;
-    height: 100px;
-    line-height: 100px;
     text-align: center;
-    border: 5px solid black;
+    border: 3px solid black;
     background-color: red;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     color: white;
 }
 
-.grid-container > .cell.active {
+.cell.cell.cells-100{
+    width: calc(750px / 10);
+    height: calc(750px / 10);
+    line-height: calc(750px / 10);
+}
+
+.cell.cells-81 {
+    width: calc(750px / 9);
+    height: calc(750px / 9);
+    line-height: calc(750px / 9);
+}
+
+.cell.cell.cells-49{
+    width: calc(750px / 7);
+    height: calc(750px / 7);
+    line-height: calc(750px / 7);
+}
+
+.grid-container > .cell.active,
+.grid-container > .cell:hover {
     background-color: white;
     color: black;
 }
+

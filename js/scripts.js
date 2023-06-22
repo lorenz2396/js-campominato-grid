@@ -1,28 +1,49 @@
-const button = document.querySelector('.button');
+const button = document.querySelector('button');
 
 button.addEventListener('click',
     function(){
-        const gridContainer = document.querySelector('.grid-container');
-        for (let i = 1; i <= 100; i++) {
-            const newCell = document.createElement('div');
-            newCell.classList.add('cell');
-            newCell.append(i);
-            newCell.addEventListener('click', function () {
-            // newCell.addEventListener('click', function (e) {
-                this.classList.toggle('active');
-                console.log(this.innerHTML);
-                
-                printSomething();
+        const difficultSelector = document.querySelector('header > select');
+        console.log(difficultSelector.value)
+        
+        const cellNumber = parseInt(difficultSelector.value)
+        console.log(cellNumber)
+        
+        // let cellNumber;
+        // if(difficultSelector == 'easy'){
+        //    cellNumber = 100; 
+        // }
+        // else if(difficultSelector == 'medium'){
+        //     cellNumber = 81;
+        // }
+        // else if(difficultSelector == 'difficult'){
+        //     cellNumber = 49;
+        // }
+        createBoard(cellNumber);
 
-                // e.target.classList.toggle('active');
-                // console.log(e.target.innerHTML);
-            });
-
-            gridContainer.append(newCell);
-        }
-
-        function printSomething() {
-            console.log(Math.random());
-        }
     }
-)
+);
+
+function createBoard(cellNumber){
+    const gridContainer = document.querySelector('.grid-container');
+    gridContainer.innerHTML = '';
+
+    for (let i = 1; i <= cellNumber; i++) {
+        const newCell = createElement(i);
+        newCell.classList.add('cells-' + cellNumber)
+        gridContainer.append(newCell);
+    }
+};
+
+
+function createElement(content){
+    const newCell = document.createElement('div');
+    newCell.innerHTML = `${content}`
+    newCell.classList.add('cell');
+    newCell.addEventListener('click', function () {
+    // newCell.addEventListener('click', function (e) {
+        console.log(this.innerHTML);
+        this.classList.toggle('active');
+    });
+
+    return newCell;
+}
